@@ -19,7 +19,6 @@ class Session
     {
         static::$Instance = $Instance;
     }
-    
 }
 
 

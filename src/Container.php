@@ -19,7 +19,7 @@ class Container
     {
         if ($alias) {
             AliasFacade::setVioconInstance($this);
-            class_alias('\\Viocon\\AliasFacade', $alias);
+            class_alias('\\Neko\\Facade\\AliasFacade', $alias);
         }
     }
 
