@@ -1,15 +1,16 @@
 <?php
 namespace Neko\Facade;
-use Neko\Framework\Router\Router;
+use Neko\Framework\Configurator;
 
-class Route
+class Config
 {
     protected static $Instance;
 
     public static function __callStatic($method, $args)
     {
         if (!static::$Instance) {
-            static::$Instance = new Router();
+            $configs = array_merge(app()->config->all(),app()->configs);
+            static::$Instance = new Configurator($configs);
         }
 
         return call_user_func_array(array(static::$Instance, $method), $args);
@@ -19,5 +20,7 @@ class Route
     {
         static::$Instance = $Instance;
     }
-    
 }
+
+
+?>
